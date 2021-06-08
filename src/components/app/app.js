@@ -1,5 +1,6 @@
 import React from "react";
-import FormsContainer from "../../container-components/forms-container/forms-container";
+import FormsContainer from "../../container-components/forms-container";
+
 
 const App = () => {
     return (
@@ -7,5 +8,5 @@ const App = () => {
             <FormsContainer/>
         </div>
     )
-}
+};
 export default App;

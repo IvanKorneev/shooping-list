@@ -1,18 +1,16 @@
 const initialState = {
-    items: ['lala', 'trolo']
+    item:[]
 };
 
-const reducer = (state = initialState, action) => {
-
+export default  (state = initialState, action) => {
     switch (action.type) {
         case 'ITEMS_LOADED':
             return {
-                products: action.payload
+                ...state,
+                showBar: action.payload
             };
-
         default:
             return state;
     }
 };
 
-export default reducer;
