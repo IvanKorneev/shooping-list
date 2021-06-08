@@ -1,5 +1,5 @@
 const initialState = {
-    items: []
+    items: ['lala', 'trolo']
 };
 
 const reducer = (state = initialState, action) => {
