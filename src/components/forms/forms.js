@@ -12,7 +12,7 @@ const Forms = (props) => {
                 <button>Add</button>
             </form>
         </div>
-    )
+    );
 };
 export default Forms;
 

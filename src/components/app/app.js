@@ -7,6 +7,6 @@ const App = () => {
         <div>
             <FormsContainer/>
         </div>
-    )
+    );
 };
 export default App;

@@ -6,14 +6,14 @@ import Forms from "../../components/forms";
 const ProductReduxForm = reduxForm({form: 'Product'})(Forms)
 
 const FormsContainer = () => {
-    const onSubmit = (Data)=>{
+    const onSubmit = (Data) => {
         console.log(Data)
     }
     return (
-            <ProductReduxForm onSubmit={onSubmit}/>
-    )
+        <ProductReduxForm onSubmit={onSubmit}/>
+    );
 };
 const mapStateToProps = ({items}) => {
     return {items}
-}
+};
 export default connect(mapStateToProps)(FormsContainer);
