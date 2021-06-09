@@ -1,16 +1,20 @@
+import actions from "redux-form/lib/actions";
+
 const initialState = {
-    item:[]
+    items: 'Test'
 };
 
 export default  (state = initialState, action) => {
     switch (action.type) {
-        case 'ITEMS_LOADED':
+        case 'ADD_ITEM':
             return {
                 ...state,
-                showBar: action.payload
+                items: action.payload
             };
         default:
             return state;
-    };
+    }
 };
+
+
 

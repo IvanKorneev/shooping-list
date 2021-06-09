@@ -1,19 +1,31 @@
 import React from "react";
 import {connect} from "react-redux";
 import {reduxForm} from "redux-form";
-import Forms from "../../components/forms";
+import Forms from "../../components/form-sadding-purchases";
 
-const ProductReduxForm = reduxForm({form: 'Product'})(Forms)
 
-const FormsContainer = () => {
-    const onSubmit = (Data) => {
-        console.log(Data)
+const ProductReduxForm = reduxForm({form: "Product"})(Forms)
+
+const FormsContainer = ({item}) => {
+
+    const onSubmit = (data) => {
+        console.log(data)
+        console.log({item})
+
+
     }
     return (
-        <ProductReduxForm onSubmit={onSubmit}/>
+        <div>
+            <ProductReduxForm onSubmit={onSubmit}/>
+            {/*<ShopList/>*/}
+        </div>
+
     );
 };
-const mapStateToProps = ({items}) => {
-    return {items}
+const mapStateToProps = ({item}) => {
+    return {item}
 };
+const mapDispatchToProps = {
+
+}
 export default connect(mapStateToProps)(FormsContainer);
