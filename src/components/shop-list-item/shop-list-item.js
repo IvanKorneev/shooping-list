@@ -1,9 +1,18 @@
 import React from "react";
 
 const ShopListItem = ({item}) => {
-    return(
+    const {product, category, price} = item.items
+    return (
         <div>
-            {item}
+            <div>
+                {product}
+            </div>
+            <div>
+                {category}
+            </div>
+            <div>
+                {price}
+            </div>
         </div>
     );
 };

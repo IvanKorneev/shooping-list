@@ -1,9 +1,9 @@
 import React from "react";
 import {Field} from "redux-form";
-import "./forms-sadding-purchases.sass"
+import "./products-form.sass"
 
-const FormsSaddingPurchases = (props) => {
-    const {handleSubmit} = props
+const ProductsForm = (props) => {
+    const {handleSubmit} = props;
     return (
         <div className='form-container'>
             <form onSubmit={handleSubmit}>
@@ -15,5 +15,5 @@ const FormsSaddingPurchases = (props) => {
         </div>
     );
 };
-export default FormsSaddingPurchases;
+export default ProductsForm;
 

@@ -1,7 +1,7 @@
 const itemsLoaded = (newItems) => {
     return {
         type: "ADD_ITEM",
-        payload: newItems
+        payload:newItems
     }
 };
 export {

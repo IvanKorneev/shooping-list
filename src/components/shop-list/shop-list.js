@@ -2,17 +2,20 @@ import React from "react";
 import ShopListItem from "../shop-list-item";
 
 const ShopList = ({items}) => {
-    return(
+    return (
         <div>
+           <span>Product</span>
+           <span>Category</span>
+           <span>Price</span>
             <ul>
                 {
-                  items.map((item)=>{
-                      return(
-                          <li>
-                              <ShopListItem item={item}/>
-                          </li>
-                      )
-                  })
+                    items.map((item, index) => {
+                        return (
+                            <li key={index + 1}>
+                                <ShopListItem item={item} />
+                            </li>
+                        )
+                    })
                 }
             </ul>
         </div>
