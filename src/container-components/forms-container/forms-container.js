@@ -1,16 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
-import {reduxForm} from "redux-form";
+import {reduxForm,reset} from "redux-form";
 import ProductsForm from "../../components/products-forms";
 import {itemsLoaded} from "../../store/actions";
 import ShopList from "../../components/shop-list";
 
 const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 
-const FormsContainer = ({items, addItem}) => {
+const FormsContainer = ({items, addItem,resetForm}) => {
 
     const onSubmit = (data) => {
         addItem(data)
+        resetForm()
     }
 
 
@@ -28,7 +29,8 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = (dispatch) => ({
-    addItem: (value) => dispatch(itemsLoaded(value))
+    addItem: (value) => dispatch(itemsLoaded(value)),
+    resetForm:(value)=> dispatch(reset("Product"))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormsContainer);
