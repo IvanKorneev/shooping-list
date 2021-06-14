@@ -4,7 +4,7 @@ const initialState = {
 
 export default  (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_ITEM':
+        case "ADD_ITEM":
             const newItem = {
                items:action.payload
             }

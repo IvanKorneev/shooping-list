@@ -1,12 +1,12 @@
 import React from "react";
 import ShopListItem from "../shop-list-item";
-import './shop-list.sass'
+import "./shop-list.sass"
 
 const ShopList = ({items}) => {
     return (
-        <div className='shop-list-container'>
-            <div className='shop-list'>
-                <div className='shop-list-title'>
+        <div className="shop-list-container">
+            <div className="shop-list">
+                <div className="shop-list-title">
                     <span>Product</span>
                     <span>Category</span>
                     <span>Price</span>
@@ -23,9 +23,6 @@ const ShopList = ({items}) => {
                         })
                     }
                 </ul>
-                <div className='border'>
-
-                </div>
             </div>
         </div>
     );
