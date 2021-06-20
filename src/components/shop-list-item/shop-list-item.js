@@ -11,7 +11,7 @@ const ShopListItem = ({item}) => {
                 {category}
             </div>
             <div className="item">
-                {price+"$"}
+                {price}
             </div>
         </div>
     );

@@ -17,7 +17,7 @@ const FormsContainer = ({items, addItem,resetForm}) => {
 
     return (
         <div>
-            <ProductReduxForm onSubmit={onSubmit}/>
+            <ProductReduxForm onSubmit={onSubmit} items={items}/>
             <ShopList items={items}/>
         </div>
 
