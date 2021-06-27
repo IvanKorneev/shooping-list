@@ -2,7 +2,8 @@ import React from "react";
 import ShopListItem from "../shop-list-item";
 import "./shop-list.sass"
 
-const ShopList = ({items}) => {
+const ShopList = ({items,deleteItem}) => {
+
     return (
         <div className="shop-list-container">
             <div className="shop-list">
@@ -17,7 +18,7 @@ const ShopList = ({items}) => {
                         items.map((item, index) => {
                             return (
                                 <li key={index + 1}>
-                                    <ShopListItem item={item}/>
+                                    <ShopListItem item={item} deleteItem={deleteItem} id={item.id}/>
                                 </li>
                             )
                         })

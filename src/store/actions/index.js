@@ -1,9 +1,16 @@
-const itemsLoaded = (newItems) => {
+const addItem = (newItems) => {
     return {
         type: "ADD_ITEM",
-        payload:newItems
-    }
+        payload: newItems
+    };
 };
+const removedFromCartItem = (removedId) => {
+    return {
+        type: "REMOVED_FROM_ITEM",
+        payload: removedId
+    };
+}
 export {
-    itemsLoaded
+    addItem,
+    removedFromCartItem
 };
