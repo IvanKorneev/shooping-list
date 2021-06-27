@@ -5,9 +5,7 @@ const initialState = {
 export default  (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ITEM":
-            const newItem = {
-               items:action.payload
-            }
+            const newItem = action.payload;
             return {
                 ...state,
                 items: [

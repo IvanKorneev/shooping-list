@@ -7,16 +7,16 @@ import ShopList from "../../components/shop-list";
 
 const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 
-const FormsContainer = ({items, addItem, resetForm,getRemovedFromItem}) => {
+const FormsContainer = ({items, addItem, resetForm, getRemovedFromItem}) => {
 
-    const onSubmit = (data,id) => {
-        addItem(data,id)
+    const onSubmit = (data, id) => {
+        addItem(data, id)
         resetForm()
-        console.log(items)
+        console.log(id)
     };
 
-    const deleteItem = (id) => {
-        getRemovedFromItem(id)
+    const deleteItem = () => {
+        getRemovedFromItem()
         console.log('help')
     }
 
@@ -24,7 +24,7 @@ const FormsContainer = ({items, addItem, resetForm,getRemovedFromItem}) => {
     return (
         <div>
             <ProductReduxForm onSubmit={onSubmit} items={items}/>
-            <ShopList items={items} deleteItem={deleteItem}/>
+            <ShopList items={items} deleteItem={deleteItem} />
         </div>
 
     );
@@ -35,9 +35,9 @@ const mapStateToProps = (state) => {
     };
 };
 const mapDispatchToProps = (dispatch) => ({
-    addItem: (value,id) => dispatch(addItem(value,id)),
+    addItem: (value, id) => dispatch(addItem(value, id)),
     resetForm: (value) => dispatch(reset("Product")),
-    getRemovedFromItem: (id, price) => removedFromCartItem(id, price)
+    getRemovedFromItem: () => removedFromCartItem()
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormsContainer);

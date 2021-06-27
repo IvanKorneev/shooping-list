@@ -18,7 +18,7 @@ const ShopList = ({items,deleteItem}) => {
                         items.map((item, index) => {
                             return (
                                 <li key={index + 1}>
-                                    <ShopListItem item={item} deleteItem={deleteItem} id={item.id}/>
+                                    <ShopListItem item={item} deleteItem={deleteItem} id={index+1}/>
                                 </li>
                             )
                         })
