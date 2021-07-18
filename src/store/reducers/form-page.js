@@ -14,8 +14,9 @@ export default  (state = initialState, action) => {
                 ]
             };
         case 'REMOVED_FROM_ITEM':
-            const removedItem = action.payload;
-            const index = state.items.findIndex(({id}) => id === removedItem)
+            const removeItem = action.payload;
+            console.log(removeItem+'reduc')
+            const index = state.items.findIndex(({id}) => id === removeItem)
             return {
                 ...state,
                 items: [

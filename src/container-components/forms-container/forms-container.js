@@ -12,12 +12,12 @@ const FormsContainer = ({items, addItem, resetForm, getRemovedFromItem}) => {
     const onSubmit = (data, id) => {
         addItem(data, id)
         resetForm()
-        console.log(id)
+        console.log(items)
     };
 
-    const deleteItem = () => {
-        getRemovedFromItem()
-        console.log('help')
+    const deleteItem = (removedId) => {
+        getRemovedFromItem(removedId)
+        console.log(removedId)
     }
 
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     addItem: (value, id) => dispatch(addItem(value, id)),
     resetForm: (value) => dispatch(reset("Product")),
-    getRemovedFromItem: () => removedFromCartItem()
+    getRemovedFromItem: (removedId) => dispatch(removedFromCartItem(removedId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormsContainer);

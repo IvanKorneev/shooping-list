@@ -1,8 +1,8 @@
 import React from "react";
 import "./shop-list-item.sass"
 
-const ShopListItem = ({item, deleteItem}) => {
-    const {product, category, price} = item.newItems
+const ShopListItem = ({item, deleteItem, id}) => {
+    const {product, category, price} = item.newItems;
     return (
         <div className="shop-list-item">
             <div className="item">
@@ -15,7 +15,7 @@ const ShopListItem = ({item, deleteItem}) => {
                 {price}
             </div>
             <div>
-                <button onClick={() => deleteItem()}>Delete</button>
+                <button onClick={() => deleteItem(id)}>Delete</button>
             </div>
         </div>
     );
