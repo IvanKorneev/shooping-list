@@ -1,5 +1,6 @@
 const initialState = {
-    items: []
+    items: [],
+    totalPrice: null,
 };
 
 export default  (state = initialState, action) => {

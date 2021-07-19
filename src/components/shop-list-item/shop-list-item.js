@@ -12,7 +12,7 @@ const ShopListItem = ({item, deleteItem, id}) => {
                 {category}
             </div>
             <div className="item">
-                {price}
+                {price} $
             </div>
             <div>
                 <button onClick={() => deleteItem(id)}>Delete</button>
