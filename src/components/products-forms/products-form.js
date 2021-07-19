@@ -3,7 +3,7 @@ import {Field} from "redux-form";
 import "./products-form.sass"
 
 const ProductsForm = (props) => {
-    const {handleSubmit,items} = props;
+    const {handleSubmit, items} = props;
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit}>
@@ -12,14 +12,14 @@ const ProductsForm = (props) => {
                 <Field type="number" component={"input"} placeholder="price" name={"price"}/>
                 <Field name="favoriteColor" component="select">
                     {
-                        items.map((item,index)=>{
-                            return(
+                        items.map((item, index) => {
+                            return (
                                 <option key={index}>
                                     {item.newItems.category}
                                 </option>
-                            )
+                            );
                         })
-                    }
+                    };
                 </Field>
                 <button className='button'>Add</button>
             </form>

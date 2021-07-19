@@ -21,3 +21,4 @@ const ShopListItem = ({item, deleteItem, id}) => {
     );
 };
 export default ShopListItem;
+
