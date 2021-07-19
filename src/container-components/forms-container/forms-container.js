@@ -5,10 +5,11 @@ import ProductsForm from "../../components/products-forms";
 import {addItem, removedFromCartItem} from "../../store/actions";
 import ShopList from "../../components/shop-list";
 import {v4 as uuidv4} from 'uuid';
+import TotalPrice from "../../components/total-price";
 
 const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 
-const FormsContainer = ({items, addItem, resetForm, removedFromItem}) => {
+const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice}) => {
 
     const onSubmit = (data, id) => {
         id = uuidv4()
@@ -17,8 +18,8 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem}) => {
         console.log(items)
     };
 
-    const deleteItem = (removedId) => {
-        removedFromItem(removedId)
+    const deleteItem = (removedId,price) => {
+        removedFromItem(removedId,price)
         console.log(removedId)
     };
 
@@ -27,19 +28,21 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem}) => {
         <div>
             <ProductReduxForm onSubmit={onSubmit} items={items}/>
             <ShopList items={items} deleteItem={deleteItem}/>
+            <TotalPrice totalPrice={totalPrice}/>
         </div>
 
     );
 };
 const mapStateToProps = (state) => {
     return {
-        items: state.formPage.items
+        items: state.formPage.items,
+        totalPrice: state.formPage.totalPrice
     };
 };
 const mapDispatchToProps = (dispatch) => ({
-    addItem: (value, id) => dispatch(addItem(value, id)),
+    addItem: (value, id, price) => dispatch(addItem(value, id, price)),
     resetForm: (value) => dispatch(reset("Product")),
-    removedFromItem: (removedId) => dispatch(removedFromCartItem(removedId))
+    removedFromItem: (removedId,price) => dispatch(removedFromCartItem(removedId,price))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormsContainer);

@@ -1,8 +1,10 @@
 import React from "react";
-const TotalPrice = () => {
-    return(
-        <div>
+import './total-price.sass';
 
+const TotalPrice = ({totalPrice}) => {
+    return (
+        <div className='total-price'>
+            <span className='total-price-wraper'>Price {totalPrice}$</span>
         </div>
     )
 }

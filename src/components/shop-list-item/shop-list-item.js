@@ -15,7 +15,7 @@ const ShopListItem = ({item, deleteItem, id}) => {
                 {price} $
             </div>
             <div>
-                <button onClick={() => deleteItem(id)}>Delete</button>
+                <button onClick={() => deleteItem(id,price)}>Delete</button>
             </div>
         </div>
     );

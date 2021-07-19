@@ -4,10 +4,10 @@ const addItem = (newItems, id) => {
         payload: {newItems, id}
     };
 };
-const removedFromCartItem = (removedId) => {
+const removedFromCartItem = (removedId,price) => {
     return {
         type: "REMOVED_FROM_ITEM",
-        payload: removedId
+        payload: {removedId,price}
     };
 }
 export {
