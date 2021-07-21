@@ -1,7 +1,8 @@
 const initialState = {
-    items: [],
+    items: JSON.parse(localStorage.getItem('productData'))|| [],
     totalPrice: null
 };
+
 
 export default (state = initialState, action) => {
     switch (action.type) {

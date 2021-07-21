@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {connect} from "react-redux";
 import {reduxForm, reset} from "redux-form";
 import ProductsForm from "../../components/products-forms";
@@ -7,29 +7,30 @@ import ShopList from "../../components/shop-list";
 import {v4 as uuidv4} from 'uuid';
 import {getData} from "../../components/helpers";
 import TotalPrice from "../../components/total-price";
+import ShopCalendar from "../../components/shop-calendar";
 
 const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 
-const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice}) => {
 
+const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice}) => {
     const onSubmit = (data) => {
         data.data = getData()
         data.id = uuidv4();
         addItem(data);
         resetForm();
-        console.log(items)
+        localStorage.setItem('productData', JSON.stringify(items));
     }
 
     const deleteItem = (removedId, price) => {
         removedFromItem(removedId, price)
     };
 
-
     return (
         <div>
             <ProductReduxForm onSubmit={onSubmit} items={items}/>
             <ShopList items={items} deleteItem={deleteItem}/>
             <TotalPrice totalPrice={totalPrice}/>
+            <ShopCalendar items={items}/>
         </div>
 
     );
