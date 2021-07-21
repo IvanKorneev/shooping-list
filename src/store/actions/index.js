@@ -1,7 +1,7 @@
-const addItem = (newItems, id) => {
+const addItem = (newItem) => {
     return {
         type: "ADD_ITEM",
-        payload: {newItems, id}
+        payload: newItem
     };
 };
 const removedFromCartItem = (removedId,price) => {

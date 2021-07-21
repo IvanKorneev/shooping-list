@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ITEM":
             const newItem = action.payload;
-            const newPrice = Number(newItem.newItems.price)
+            const newPrice = Number(newItem.price)
             return {
                 ...state,
                 items: [

@@ -15,7 +15,7 @@ const ProductsForm = (props) => {
                         items.map((item, index) => {
                             return (
                                 <option key={index}>
-                                    {item.newItems.category}
+                                    {item.category}
                                 </option>
                             );
                         })
