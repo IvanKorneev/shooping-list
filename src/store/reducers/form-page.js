@@ -1,5 +1,5 @@
 const initialState = {
-    items: JSON.parse(localStorage.getItem('productData'))|| [],
+    items: [],
     totalPrice: null
 };
 
@@ -29,10 +29,17 @@ export default (state = initialState, action) => {
                 ],
                 totalPrice: state.totalPrice - removePrice
             }
+        case 'GET_INFO_LOCAL_STORAGE':
+            const newStorage = action.payload;
+            return {
+                ...state,
+                items:newStorage
+            }
         default:
             return state;
     }
 };
+
 
 
 
