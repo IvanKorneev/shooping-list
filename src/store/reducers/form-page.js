@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
             const newStorage = action.payload;
             return {
                 ...state,
-                items:newStorage
+                items:newStorage,
             }
         default:
             return state;

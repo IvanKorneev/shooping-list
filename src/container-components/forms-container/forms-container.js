@@ -15,7 +15,9 @@ const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice, addStorage}) => {
 
 
-    useEffect(() => getStorage(), [])
+    useEffect(() => {
+        getStorage()
+    }, [addStorage])
 
     const onSubmit = (data) => {
         data.date = getDate()
@@ -24,10 +26,17 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice,
         resetForm();
         localStorage.setItem('productData', JSON.stringify(items));
     }
+    const removedItemLocalStorage = (removedId) => {
+        let localStorageData = JSON.parse(localStorage.getItem('productData'));
+        const updatedLocalStorageData = localStorageData.filter(el => el.id !== removedId);
+        localStorage.setItem('productData',JSON.stringify(updatedLocalStorageData));
+    }
+
+
 
     const deleteItem = (removedId, price) => {
         removedFromItem(removedId, price);
-        localStorage.removeItem('productData');
+        removedItemLocalStorage(removedId)
     }
 
     const getStorage = () => {
@@ -43,7 +52,7 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice,
             <ProductReduxForm onSubmit={onSubmit} items={items}/>
             <ShopList items={items} deleteItem={deleteItem}/>
             <TotalPrice totalPrice={totalPrice}/>
-            <ShopCalendar items={items}/>
+
         </div>
 
     );
