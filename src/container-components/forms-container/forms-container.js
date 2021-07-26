@@ -7,7 +7,7 @@ import ShopList from "../../components/shop-list";
 import {v4 as uuidv4} from 'uuid';
 import {getDate} from "../../components/helpers";
 import TotalPrice from "../../components/total-price";
-import ShopCalendar from "../../components/shop-calendar";
+
 
 const ProductReduxForm = reduxForm({form: "Product"})(ProductsForm)
 
