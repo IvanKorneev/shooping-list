@@ -3,6 +3,14 @@ import ShopListItem from "../shop-list-item";
 import "./shop-list.sass"
 
 const ShopList = ({items, deleteItem}) => {
+    const elements = items.map((item) => {
+        const {id} = item;
+        return (
+            <li key={id}>
+                <ShopListItem item={item} deleteItem={deleteItem} id={id}/>
+            </li>
+        )
+    })
 
     return (
         <div className="shop-list-container">
@@ -14,15 +22,7 @@ const ShopList = ({items, deleteItem}) => {
                 </div>
 
                 <ul>
-                    {
-                        items.map((item, index) => {
-                            return (
-                                <li key={index + 1}>
-                                    <ShopListItem item={item} deleteItem={deleteItem} id={item.id}/>
-                                </li>
-                            )
-                        })
-                    }
+                    {elements}
                 </ul>
             </div>
         </div>

@@ -29,9 +29,8 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice,
     const removedItemLocalStorage = (removedId) => {
         let localStorageData = JSON.parse(localStorage.getItem('productData'));
         const updatedLocalStorageData = localStorageData.filter(el => el.id !== removedId);
-        localStorage.setItem('productData',JSON.stringify(updatedLocalStorageData));
+        localStorage.setItem('productData', JSON.stringify(updatedLocalStorageData));
     }
-
 
 
     const deleteItem = (removedId, price) => {
@@ -40,10 +39,11 @@ const FormsContainer = ({items, addItem, resetForm, removedFromItem, totalPrice,
     }
 
     const getStorage = () => {
-        if (!localStorage.getItem('productData')) {
+        const infoStorage = localStorage.getItem('productData')
+        if (!infoStorage) {
             return [];
         }
-        addStorage(JSON.parse(localStorage.getItem('productData')));
+        addStorage(JSON.parse(infoStorage));
     }
 
 

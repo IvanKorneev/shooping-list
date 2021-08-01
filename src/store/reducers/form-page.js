@@ -1,6 +1,6 @@
 const initialState = {
     items: [],
-    totalPrice: null
+    totalPrice: 0
 };
 
 
@@ -31,9 +31,13 @@ export default (state = initialState, action) => {
             }
         case 'GET_INFO_LOCAL_STORAGE':
             const newStorage = action.payload;
+            const totalPrice = newStorage.reduce((accumulator, currentValue) => {
+                return Number(accumulator) + Number(currentValue.price);
+            }, 0)
             return {
                 ...state,
                 items:newStorage,
+                totalPrice
             }
         default:
             return state;
